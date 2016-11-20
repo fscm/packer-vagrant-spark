@@ -1,0 +1,23 @@
+[Unit]
+Description=Jupyter Notebook
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=spark
+Group=spark
+Environment="_JAVA_OPTIONS=-Xmx1g -Djava.ext.dirs=/srv/spark/jars:/opt/java/lib/ext:/usr/java/packages/lib/ext"
+WorkingDirectory=/srv/notebooks
+ExecStart=/usr/local/bin/jupyter notebook
+StandardOutput=journal
+StandardError=journal
+LimitNOFILE=infinity
+LimitMEMLOCK=infinity
+LimitNPROC=infinity
+LimitAS=infinity
+Restart=always
+RestartSec=20
+
+[Install]
+WantedBy=multi-user.target
