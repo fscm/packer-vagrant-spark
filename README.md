@@ -22,6 +22,14 @@ Packer tools need to be installed on your local computer.
 
 Packer installation instructions can be found [here](https://www.packer.io/docs/installation.html).
 
+#### Vagrant
+
+Vagrant installation instructions can be found [here](https://www.vagrantup.com/docs/installation/).
+
+#### Virtualbox
+
+Virtualbox installation instructions can be found [here](https://www.virtualbox.org/wiki/Downloads).
+
 ### Installation
 
 Nothing special to be done. Just download the template that you wish to use.
