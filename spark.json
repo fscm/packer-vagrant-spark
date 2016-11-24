@@ -1,34 +1,34 @@
 {
   "variables": {
-    "headless":                "true",
-    "os_version":               "8.6.0",
-    "os_arch":                 "amd64",
-    "os_short_arch":           "x64",
-    "os_type":                 "Debian_64",
-    "system_disk_size":        "12288",
-    "system_locale":           "en_US",
-    "system_timezone":         "Europe/Lisbon",
-    "system_user":             "pollywog",
-    "system_pwd":              "spark",
-    "system_hostname":         "spark",
-    "system_domain":           "marsh",
     "app_name":                "spark",
     "app_name_ext":            "-jupyter",
-    "spark_version":           "2.0.2",
-    "spark_hadoop_version":    "2.7",
-    "spark_csv_version":       "1.5.0",
-    "spark_cassandra_version": "2.0.0-M2",
+    "headless":                "true",
+    "java_build_number":       "15",
     "java_major_version":      "8",
     "java_update_version":     "112",
-    "java_build_number":       "15",
+    "scala_short_version":     "2.11",
     "scala_version":           "2.11.8",
-    "scala_short_version":     "2.11"
+    "spark_cassandra_version": "2.0.0-M2",
+    "spark_csv_version":       "1.5.0",
+    "spark_hadoop_version":    "2.7",
+    "spark_version":           "2.0.2",
+    "system_disk_size":        "12288",
+    "system_domain":           "marsh",
+    "system_hostname":         "spark",
+    "system_locale":           "en_US",
+    "system_pwd":              "spark",
+    "system_timezone":         "Europe/Lisbon",
+    "system_user":             "pollywog",
+    "os_arch":                 "amd64",
+    "os_short_arch":           "x64",
+    "os_type_virtualbox":      "Debian_64",
+    "os_version":              "8.6.0"
   },
-
   "builders": [
     {
+      "name":                 "virtualbox",
       "type":                 "virtualbox-iso",
-      "guest_os_type":        "{{user `os_type`}}",
+      "guest_os_type":        "{{user `os_type_virtualbox`}}",
       "vm_name":              "{{user `app_name`}}-{{isotime \"20060102150405\"}}",
       "http_directory":       "http",
       "headless":             "{{user `headless`}}",
@@ -104,7 +104,7 @@
       "destination": "/tmp"
     },
     {
-      "only":           ["virtualbox-iso"],
+      "only":           ["virtualbox"],
       "type":           "shell",
       "inline_shebang": "/bin/bash -e",
       "inline": [
@@ -120,7 +120,15 @@
         "sudo DEBIAN_FRONTEND=noninteractive apt-get -y -q purge `dpkg -l | grep python | awk '{print $2}' | grep -v python3 | grep -v dh-python | grep -v ipython-notebook-common`",
         "sudo DEBIAN_FRONTEND=noninteractive apt-get -y -q --purge autoremove",
         "sudo DEBIAN_FRONTEND=noninteractive apt-get autoclean",
-        "sudo DEBIAN_FRONTEND=noninteractive apt-get clean",
+        "sudo DEBIAN_FRONTEND=noninteractive apt-get clean"
+      ]
+    },
+    {
+      "type":           "shell",
+      "inline_shebang": "/bin/bash -e",
+      "inline": [
+        "unset HISTFILE",
+        "history -cw",
         "echo === Python Settings ===",
         "echo -e 'export PYTHONHASHSEED=0\\nexport PYTHONIOENCODING=UTF-8\\nexport PIP_DISABLE_PIP_VERSION_CHECK=1' | sudo tee /etc/profile.d/python.sh > /dev/null",
         "sudo sed -i -r -e 's/#DefaultEnvironment/DefaultEnvironment/;/DefaultEnvironment/s/([^=])$/\\1 /;/DefaultEnvironment/s/$/\"PYTHONHASHSEED=0\" \"PYTHONIOENCODING=UTF-8\" \"PIP_DISABLE_PIP_VERSION_CHECK=1\"/' /etc/systemd/system.conf",
@@ -232,6 +240,8 @@
         "sudo rm -f /root/.bash_history",
         "sudo rm -f /home/{{user `system_user`}}/.bash_history",
         "sudo rm -f /home/{{user `system_user`}}/.vbox_version",
+        "sudo rm -f /home/{{user `system_user`}}/.prlctl_version",
+        "sudo rm -f /home/{{user `system_user`}}/*.iso",
         "sudo rm -f /var/log/wtmp",
         "sudo rm -f /var/log/btmp",
         "sudo rm -rf /var/log/installer",
