@@ -1,3 +1,12 @@
+#
+# Systemd script to manage Spark Master.
+#
+# Copyright 2016, Frederico Martins
+#   Author: Frederico Martins <http://github.com/fscm>
+#
+# SPDX-License-Identifier: MIT
+#
+
 [Unit]
 Description=Spark Master
 After=network.target network-online.target
