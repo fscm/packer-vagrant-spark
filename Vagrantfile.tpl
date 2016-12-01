@@ -18,13 +18,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box_check_update = true
 
-  config.vm.network "forwarded_port", guest: 4040, host: 4040
-  config.vm.network "forwarded_port", guest: 6066, host: 6066
-  config.vm.network "forwarded_port", guest: 7077, host: 7077
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
-  config.vm.network "forwarded_port", guest: 8081, host: 8081
-  config.vm.network "forwarded_port", guest: 8888, host: 8888
-  config.vm.network "forwarded_port", guest: 18080, host: 18080
+  config.vm.network "forwarded_port", guest: 4040, host: 4040, protocol: "tcp", auto_correct: true
+  config.vm.network "forwarded_port", guest: 6066, host: 6066, protocol: "tcp", auto_correct: true
+  config.vm.network "forwarded_port", guest: 7077, host: 7077, protocol: "tcp", auto_correct: true
+  config.vm.network "forwarded_port", guest: 8080, host: 8080, protocol: "tcp", auto_correct: true
+  config.vm.network "forwarded_port", guest: 8081, host: 8081, protocol: "tcp", auto_correct: true
+  config.vm.network "forwarded_port", guest: 8888, host: 8888, protocol: "tcp", auto_correct: true
+  config.vm.network "forwarded_port", guest: 18080, host: 18080, protocol: "tcp", auto_correct: true
 
   config.vm.communicator = "ssh"
 
