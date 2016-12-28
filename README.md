@@ -1,13 +1,13 @@
-# Spark Image
+# Spark Box
 
-Packer templates to build a Vagrant Spark image.
+Packer templates to build a Vagrant Spark box.
 
 ## Synopsis
 
-This script will create a Vagrant image with Spark installed and with all of
+This script will create a Vagrant box with Spark installed and with all of
 the required libraries.
 
-The image also has Jupyter Notebook installed, with the Python and the Scala
+The box also has Jupyter Notebook installed, with the Python and the Scala
 kernel available, that can be used to quickly test some code.
 
 ## Getting Started
@@ -36,7 +36,7 @@ Nothing special to be done. Just download the template that you wish to use.
 
 ### Usage
 
-In order to create the image using this packer script you need to provide a
+In order to create the box using this packer script you need to provide a
 few options.
 
 ```
@@ -67,7 +67,7 @@ Usage:
 
 ## Services
 
-This image will have the following services running.
+This box will have the following services running.
 
 | Service           | Port   | Protocol |
 |-------------------|:------:|:--------:|
