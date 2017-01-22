@@ -91,16 +91,16 @@ This box will have the following services running.
 ## Versioning
 
 This project uses [SemVer](http://semver.org/) for versioning. For the versions
-available, see the [tags on this repository](https://github.com/fscm/packer-templates/tags).
+available, see the [tags on this repository](https://github.com/fscm/packer-vagrant-spark/tags).
 
 ## Authors
 
 * **Frederico Martins** - [fscm](https://github.com/fscm)
 
-See also the list of [contributors](https://github.com/fscm/packer-templates/contributors)
+See also the list of [contributors](https://github.com/fscm/packer-vagrant-spark/contributors)
 who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/fscm/packer-templates/LICENSE)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE)
 file for details
