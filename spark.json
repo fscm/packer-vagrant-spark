@@ -232,6 +232,7 @@
         "sudo -u spark jupyter nbextension enable table_beautifier/main --user",
         "sudo -u spark jupyter nbextension enable toggle_all_line_numbers/main --user",
         "sudo -u spark jupyter nbextension enable ruler/main --user",
+        "sudo -u spark jupyter nbextension enable tree-filter/index --user",
         "sudo cp /tmp/jupyter-notebook.service /lib/systemd/system/",
         "sudo systemctl daemon-reload",
         "sudo systemctl enable jupyter-notebook.service",
