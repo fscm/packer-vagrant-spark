@@ -153,6 +153,7 @@
         "sudo dpkg-reconfigure -f noninteractive dash",
         "sudo sed -i -e '/^#NAutoVTs/aNAutoVTs=2' /etc/systemd/logind.conf",
         "sudo update-locale LC_CTYPE={{user `system_locale`}}.UTF-8",
+        "echo 'export TZ=:/etc/localtime' | sudo tee /etc/profile.d/tz.sh > /dev/null",
         "sudo update-alternatives --set editor /usr/bin/vim.basic",
         "echo === Sysctl ===",
         "sudo cp /tmp/50-spark.conf /etc/sysctl.d/",
