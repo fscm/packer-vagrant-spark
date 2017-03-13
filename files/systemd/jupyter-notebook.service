@@ -16,7 +16,6 @@ Wants=network-online.target
 Type=simple
 User=spark
 Group=spark
-Environment="_JAVA_OPTIONS=-Xmx1g -Djava.ext.dirs=/srv/spark/jars:/opt/java/lib/ext:/usr/java/packages/lib/ext"
 WorkingDirectory=/srv/notebooks
 ExecStart=/usr/local/bin/jupyter notebook
 SyslogIdentifier=jupyter
