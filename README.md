@@ -48,9 +48,10 @@ Usage:
 - `app_name` - The application name (default value: "spark").
 - `app_name_ext` - Extra name for the application (default value: "-jupyter").
 - `headless` - Show the console of the machine being built (default value: "true").
-- `java_build_number` - Java build number (default value: "15").
+- `java_build_number` - Java build number (default value: "11").
 - `java_major_version` - Java major version (default value: "8").
-- `java_update_version` - Java update version (default value: "112").
+- `java_token` - Java link token (default version: "d54c1d3a095b4ff2b6607d096fa80163").
+- `java_update_version` - Java update version (default value: "131").
 - `scala_short_version` - Scala short version (default value: "2.11"). Setting this option also requires setting the `scala_version` option.
 - `scala_version` - Scala version (default value: "2.11.8"). Seting this option may also require setting the `scala_short_version` option.
 - `spark_cassandra_version` - Version of the Cassandra module for Spark (default value: "2.0.0-M2").
